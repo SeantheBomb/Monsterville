@@ -7,6 +7,12 @@ public class FlyAroundAndChaseYou : MonoBehaviour
 
     public float speed;
 
+    public int damage = 1;
+
+    bool canAttack = true;
+
+    public float attackSpeed = 1f;
+
     public Transform kitty;
 
     public AudioClip growl, gameOver;
@@ -52,10 +58,28 @@ public class FlyAroundAndChaseYou : MonoBehaviour
             else
             {
                 //Destroy(other.gameObject);
-                GameOverScreen.ShowLoseScreen();
+                //GameOverScreen.ShowLoseScreen();
+                AttackPlayer();
                 //Kill the player!
-                audio.PlayOneShot(gameOver);
+                //audio.PlayOneShot(gameOver);
             }
         }
+    }
+
+
+    void AttackPlayer()
+    {
+        if (canAttack)
+        {
+            KittykatHealth.AttackKitty(damage);
+            StartCoroutine(WaitToAttack());
+        }
+    }
+
+    IEnumerator WaitToAttack()
+    {
+        canAttack = false;
+        yield return new WaitForSeconds(speed);
+        canAttack = true;
     }
 }

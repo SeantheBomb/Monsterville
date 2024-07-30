@@ -1,8 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
@@ -10,15 +13,17 @@ public class GameOverScreen : MonoBehaviour
     static GameOverScreen instance;
 
 
-    public TMP_Text text;
+    public TMP_Text title, body;
+    public Button yesButton, noButton;
 
-    public string winText;
-    public string loseText;
+    public AudioSource audioOutput;
+
+    public GameOverBlurb win, lose;
 
 
     private void Start()
     {
-        text.gameObject.SetActive(false);
+        gameObject.SetActive(false);
         instance = this;
     }
 
@@ -32,13 +37,34 @@ public class GameOverScreen : MonoBehaviour
 
     public static void ShowWinScreen()
     {
-        instance.text.text = instance.winText;
+        instance.ShowBlurb(instance.win);
         instance.gameObject.SetActive(true);
     }
 
     public static void ShowLoseScreen()
     {
-        instance.text.text = instance.loseText;
+        instance.ShowBlurb(instance.lose);
         instance.gameObject.SetActive(true);
     }
+
+    public void ShowBlurb(GameOverBlurb blurb)
+    {
+        title.text = blurb.title;
+        body.text = blurb.body;
+        yesButton.onClick.RemoveAllListeners();
+        yesButton.onClick.AddListener(()=>blurb.yesAction?.Invoke());
+        noButton.onClick.RemoveAllListeners();
+        noButton.onClick.AddListener(()=>blurb.noAction?.Invoke());
+        audioOutput.PlayOneShot(blurb.sound);
+    }
+}
+
+[Serializable]
+public struct GameOverBlurb
+{
+    public string title;
+    public string body;
+    public UnityEvent yesAction;
+    public UnityEvent noAction;
+    public AudioClip sound;
 }
