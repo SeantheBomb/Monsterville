@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickUpSword : MonoBehaviour
+public class PickUpPowerJump : MonoBehaviour
 {
 
     public Transform holder;
 
-    public string swordTag;
+    public string tag;
 
-    public bool hasSword;
+    public bool hasPickup;
 
-    public AudioClip killMonster;
+    public AudioClip powerJump;
 
-    public float loseSwordTime = 10;
+    public float losePickUpTime = 10;
 
     AudioSource audio;
 
@@ -25,7 +25,7 @@ public class PickUpSword : MonoBehaviour
 
     public void UseSword()
     {
-        audio.PlayOneShot(killMonster);
+        audio.PlayOneShot(powerJump);
 
         //hasSword = false;
         //foreach(Transform t in holder)
@@ -37,24 +37,26 @@ public class PickUpSword : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(swordTag))
+        if (collision.CompareTag(tag))
         {
             collision.transform.parent = holder;
             collision.transform.localPosition = Vector3.zero;
-            hasSword = true;
+            hasPickup = true;
             StopAllCoroutines();
-            StartCoroutine(LoseSword());
+            StartCoroutine(LosePickUp());
         }
     }
 
-    IEnumerator LoseSword()
+    IEnumerator LosePickUp()
     {
-        yield return new WaitForSeconds(loseSwordTime);
-        hasSword = false;
+        GetComponent<KittykatMove>().jumpMultiplier = 2;
+        yield return new WaitForSeconds(losePickUpTime);
+        hasPickup = false;
         foreach(Transform t in holder)
         {
             Destroy(t.gameObject);
         }
+        GetComponent<KittykatMove>().jumpMultiplier = 1;
     }
 
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class KittykatMove : MonoBehaviour
@@ -9,11 +10,15 @@ public class KittykatMove : MonoBehaviour
 
     public float jumpForce = 100f;
 
+    public float jumpMultiplier = 1f;
+
     public AudioClip meow;
 
     Rigidbody2D rb;
 
     AudioSource audio;
+
+    bool isGrounded = false;
 
 
     // Start is called before the first frame update
@@ -37,10 +42,23 @@ public class KittykatMove : MonoBehaviour
             //rb.MovePosition(rb.position + Vector2.right * speed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
         {
-            rb.AddForce(Vector2.up * jumpForce);
+            rb.AddForce(Vector2.up * jumpForce * jumpMultiplier);
             audio.PlayOneShot(meow);
+        }
+        
+
+    }
+
+    private void FixedUpdate()
+    {
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.1f, LayerMask.NameToLayer("Floor"));
+        isGrounded = hits.Length > 0;
+
+        if (Input.GetKey(KeyCode.UpArrow) == false && !isGrounded)
+        {
+            rb.AddForce(Physics2D.gravity);
         }
     }
 }

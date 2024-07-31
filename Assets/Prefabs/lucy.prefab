@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1151583987}
   m_Layer: 0
-  m_Name: Holder
+  m_Name: Sword Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 7878350319492529226}
   - component: {fileID: 7878350319492529229}
   - component: {fileID: 2837104857485531207}
+  - component: {fileID: 6100363996859038854}
   m_Layer: 0
   m_Name: lucy
   m_TagString: Player
@@ -161,6 +162,7 @@ Transform:
   m_Children:
   - {fileID: 4319793430894306201}
   - {fileID: 1151583987}
+  - {fileID: 8569914224524236931}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &695691808685181113
@@ -290,7 +292,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  jumpForce: 300
+  jumpForce: 600
+  jumpMultiplier: 1
   meow: {fileID: 8300000, guid: fd46b4da39c6f8d438f44a34a1d44b27, type: 3}
 --- !u!114 &7878350319492529229
 MonoBehaviour:
@@ -405,6 +408,54 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6100363996859038854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578213609021148981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55ee3ca9d57721e4cbd4e5d67edd91c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  holder: {fileID: 8569914224524236931}
+  tag: Powerup
+  hasPickup: 0
+  powerJump: {fileID: 8300000, guid: c2a7922be71eed04792035d32dbd6338, type: 3}
+  losePickUpTime: 10
+--- !u!1 &9219548317205201597
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8569914224524236931}
+  m_Layer: 0
+  m_Name: Powerup Holder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8569914224524236931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9219548317205201597}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.73, y: 0.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6244092325666957136}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4319793430652499850
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -11,6 +11,8 @@ public class KittykatHealth : MonoBehaviour
     public static System.Action<int> OnHealthChange;
     public static System.Action OnHealthZero;
 
+    bool isAlive = true;
+
     static KittykatHealth instance;
 
 
@@ -40,9 +42,11 @@ public class KittykatHealth : MonoBehaviour
     public void SetHealth(int health)
     {
         currentHealth = health;
+        if (isAlive == false) return;
         OnHealthChange?.Invoke(currentHealth);
         if (currentHealth <= 0)
         {
+            SetAlive(false);
             OnHealthZero?.Invoke();
             GameOverScreen.ShowLoseScreen();
         }
@@ -52,5 +56,16 @@ public class KittykatHealth : MonoBehaviour
     {
         instance.TakeDamage(damage);
         return instance.currentHealth;
+    }
+
+    void SetAlive(bool isAlive)
+    {
+        this.isAlive = isAlive;
+        GetComponent<KittykatMove>().enabled = isAlive;
+    }
+
+    public void WinGame()
+    {
+        SetAlive(false);
     }
 }

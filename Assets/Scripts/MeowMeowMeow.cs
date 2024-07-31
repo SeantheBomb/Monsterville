@@ -24,6 +24,7 @@ public class MeowMeowMeow : MonoBehaviour
         }
         Instantiate(crown, transform.position, transform.rotation);
         Destroy(gameObject);
+        other.GetComponent<KittykatHealth>().WinGame();
         GameOverScreen.ShowWinScreen();
         audio.PlayOneShot(clip);
     }

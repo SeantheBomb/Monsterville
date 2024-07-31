@@ -42,6 +42,9 @@ public class FlyAroundAndChaseYou : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vector3.Distance(transform.position, kitty.transform.position) > 10)
+            return;
+
         Vector3 delta = kitty.position - transform.position;
         transform.position += delta.normalized * speed * Time.deltaTime;
     }
