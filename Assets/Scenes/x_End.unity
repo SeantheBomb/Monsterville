@@ -306,33 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speechText:
-  - text: To win the game get to the right teasure chest.
-    voiceover: {fileID: 8300000, guid: 9d910666b8567a74795de78508371fca, type: 3}
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: The platforms are moving so be careful.
-    voiceover: {fileID: 8300000, guid: 61c96f615f0c78e49abcbaacfcfe3d8e, type: 3}
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: The monsters are following you.
-    voiceover: {fileID: 8300000, guid: 255324d9b031de14b9f5f1a5ead122bc, type: 3}
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: Collect the swords to defaet the monsters.
-    voiceover: {fileID: 8300000, guid: 0aa264ab88ac7324b8f1201b4af1d4bb, type: 3}
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: But the swords only last for 10 seconds.
-    voiceover: {fileID: 8300000, guid: b686261eb19b94e4788272bb958fa317, type: 3}
-    action:
-      m_PersistentCalls:
-        m_Calls: []
-  - text: Good luck!
-    voiceover: {fileID: 8300000, guid: a35c980ea4cc1d048b90eb865de661f0, type: 3}
+  - text: You finished the game!
+    voiceover: {fileID: 8300000, guid: 240d6d5abf3f5914bac3753729f4d386, type: 3}
     action:
       m_PersistentCalls:
         m_Calls: []
@@ -343,14 +318,14 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 473550067}
           m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-          m_MethodName: LoadScene
-          m_Mode: 5
+          m_MethodName: Quit
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
-            m_StringArgument: Level One
+            m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
   speechBubble: {fileID: 1715221446}
