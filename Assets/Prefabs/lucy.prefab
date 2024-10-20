@@ -291,7 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfd663ad91ef48b408acb9725bbaf5e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   jumpForce: 600
   jumpMultiplier: 1
   meow: {fileID: 8300000, guid: fd46b4da39c6f8d438f44a34a1d44b27, type: 3}

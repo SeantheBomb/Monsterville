@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KittykatMove : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class KittykatMove : MonoBehaviour
     public float jumpMultiplier = 1f;
 
     public AudioClip meow;
+
+    [SerializeField] ButtonControl leftButton, rightButton, upButton;
 
     Rigidbody2D rb;
 
@@ -31,18 +34,18 @@ public class KittykatMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || leftButton.pressed)
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
             //rb.MovePosition(rb.position + Vector2.left * speed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || rightButton.pressed)
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
             //rb.MovePosition(rb.position + Vector2.right * speed * Time.deltaTime);
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.UpArrow) || upButton.pressedThisFrame) && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce * jumpMultiplier);
             audio.PlayOneShot(meow);
@@ -56,7 +59,7 @@ public class KittykatMove : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, Vector2.down, 0.1f, LayerMask.NameToLayer("Floor"));
         isGrounded = hits.Length > 0;
 
-        if (Input.GetKey(KeyCode.UpArrow) == false && !isGrounded)
+        if ((Input.GetKey(KeyCode.UpArrow) == false && upButton.pressed == false) && !isGrounded)
         {
             rb.AddForce(Physics2D.gravity);
         }
