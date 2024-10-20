@@ -140,8 +140,9 @@ GameObject:
   - component: {fileID: 7878350319492529229}
   - component: {fileID: 2837104857485531207}
   - component: {fileID: 6100363996859038854}
+  - component: {fileID: 7472965120180608283}
   m_Layer: 0
-  m_Name: lucy
+  m_Name: kitty
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,6 +296,9 @@ MonoBehaviour:
   jumpForce: 600
   jumpMultiplier: 1
   meow: {fileID: 8300000, guid: fd46b4da39c6f8d438f44a34a1d44b27, type: 3}
+  leftButton: {fileID: 0}
+  rightButton: {fileID: 0}
+  upButton: {fileID: 0}
 --- !u!114 &7878350319492529229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,6 +429,21 @@ MonoBehaviour:
   hasPickup: 0
   powerJump: {fileID: 8300000, guid: c2a7922be71eed04792035d32dbd6338, type: 3}
   losePickUpTime: 10
+--- !u!114 &7472965120180608283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6578213609021148981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 829e2c0e9665c4f4a83991af587873ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 695691808685181113}
+  move: {fileID: 7878350319492529226}
+  catalog: {fileID: 11400000, guid: 7369d5e7bae1ded47aac4ee0acdffc16, type: 2}
 --- !u!1 &9219548317205201597
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d2f383bfe564c9439685c673c9de5e6, type: 3}
+  m_Name: AvatarCatalog
+  m_EditorClassIdentifier: 
+  avatars:
+  - name: Lucy
+    kittySprite: {fileID: 7348253978505039795, guid: 85dbfbc853bc2134dbc05c59f28b4e5e, type: 3}
+    eggSprite: {fileID: 0}
+    meow: {fileID: 8300000, guid: fd46b4da39c6f8d438f44a34a1d44b27, type: 3}
+    isUnlocked: 1
+    startsUnlocked: 1
+  - name: Panby
+    kittySprite: {fileID: -7383085720234491018, guid: fdc511fed107cb64ba8575f09aadb245, type: 3}
+    eggSprite: {fileID: 0}
+    meow: {fileID: 8300000, guid: be8625a5c4fc5924ab1b6affd9ef4824, type: 3}
+    isUnlocked: 1
+    startsUnlocked: 1
+  - name: Devil
+    kittySprite: {fileID: -261971282573097400, guid: eef4244284103bb43a6e0bd74bf9eba7, type: 3}
+    eggSprite: {fileID: 2572140734276332624, guid: 8b19b270b0c400242b4ff11c41b6628b, type: 3}
+    meow: {fileID: 8300000, guid: 28a0849a904f8c946a7a153e3247407a, type: 3}
+    isUnlocked: 0
+    startsUnlocked: 0
+  - name: Mercedes
+    kittySprite: {fileID: -2646048613477841522, guid: c3b53b064606f124ab2baf856db4e85b, type: 3}
+    eggSprite: {fileID: 4453287763984798332, guid: 8b19b270b0c400242b4ff11c41b6628b, type: 3}
+    meow: {fileID: 8300000, guid: a5a6f393e98d74f4c8857876532839af, type: 3}
+    isUnlocked: 0
+    startsUnlocked: 0
+  - name: Flyer
+    kittySprite: {fileID: -2227986710261480379, guid: 90b88ebd5587b604fa7aaccc7481acc3, type: 3}
+    eggSprite: {fileID: 7151311313156393282, guid: 8b19b270b0c400242b4ff11c41b6628b, type: 3}
+    meow: {fileID: 8300000, guid: 5346c70eccf7f774d88a39418f6eea40, type: 3}
+    isUnlocked: 0
+    startsUnlocked: 0
+  - name: Calengula
+    kittySprite: {fileID: -6161730963633770371, guid: 1024c86ece6d63f479f94617e791a926, type: 3}
+    eggSprite: {fileID: 4136456194635425724, guid: 8b19b270b0c400242b4ff11c41b6628b, type: 3}
+    meow: {fileID: 8300000, guid: a97381a268ef44a4a9a1ebcce8abda89, type: 3}
+    isUnlocked: 0
+    startsUnlocked: 0
+  selectedIndex: 1
